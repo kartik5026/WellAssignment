@@ -1,34 +1,42 @@
+# Product List with Pagination and Search
 
-# ProjectAcad Setup Instructions
+This project is a React-based product listing application that allows users to view, search products. The application includes features like pagination and searching by product name.
 
-## Step 1: Clone the Repository
-Clone the Git repository into your local folder:
+## Features
 
-```bash
-git clone https://github.com/kartik5026/WellAssignment.git
-```
+- **Product Listing**: Display products in a grid layout using the `ProductCard` component.
+- **Pagination**: Supports pagination to display a limited number of products per page.
+- **Search by Name**: Users can search products by their name.
+- **Category Filter**: Users can filter products by category.
 
-## Step 2: Open the Folder in Visual Studio Code
-Navigate to the folder where you cloned and open it in Visual Studio Code.
+## Problem Solving Approach
 
----
+### 1. **Pagination**
+   To implement pagination, I calculated the range of products to be displayed on each page. I used `useState` to track the current page and the `itemsPerPage` to determine how many products should be displayed per page.
+
+   - **Steps Taken**:
+     - Defined the number of items to display per page (`itemsPerPage`).
+     - Created state for the `currentPage` using `useState`.
+     - Calculated the starting and ending indices for the products to be displayed on the current page.
+     - Used the `Pagination` component to handle the pagination controls and page changes.
+
+### 2. **Search by Product Name**
+   To implement product search functionality, I added an input field for searching products by name. On each search, I filtered the product list based on the entered search term.
+
+   - **Steps Taken**:
+     - Added a state variable for the search term.
+     - Used the `onSearch` function to filter products based on the search term and update the displayed products accordingly.
 
 
-## Step 3: Open Terminal and Navigate to Frontend
-- Open the terminal in Visual Studio Code using `Ctrl + Shift + ~`.
-- Change the directory to the `WellAssignment` folder if not:
-  ```bash
-  cd WellAssignment
-  ```
+### 3. **Category Filter**
+   To allow users to filter products by category, I added a dropdown select field that lets users choose a category. The product list is filtered based on the selected category.
 
-## Step 4: Install Node Modules
-- Run the following command to install the required node modules:
-  ```bash
-  npm install
-  ```
+   - **Steps Taken**:
+     - Added a `currentCategory` state to track the selected category.
+     - Implemented a dropdown that lists available categories and filters products accordingly when a category is selected.
 
-## Step 5: Run the Frontend
-- After installation, start the frontend using:
-  ```bash
-  npm run dev
-  ```
+## Technologies Used
+
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework used to style the application.
+- **Open Food Facts API**: External API used to fetch product data by barcode.
